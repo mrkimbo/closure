@@ -1,0 +1,180 @@
+/** -------------------------- STYLESHEET VARS ------------------------------ */
+
+/* GLOBALS */
+@if (PRODUCTION) {
+  @def URL_PREFIX       '';
+} @else {
+  @def URL_PREFIX       'http://localhost';
+}
+
+@def NULL;
+
+/* BORDERS */
+@def STD_RADIUS       8px;
+
+/* TYPOGRAPHIC */
+@def STD_FONT_COLOUR  #000000;
+
+/* COLOURS */
+@def DARK_GREY        #292929;
+@def ORANGE           #F49200;
+@def LIGHT_ORANGE     #FAB234;
+@def PALE_BLUE      	#AAC9E1;
+@def SHOP_GREY        #8E8E8E;
+@def BORDER_LT_GREY   #EBEBEB;
+@def SHOP_GREY        #A4A4A4;
+@def SITE_GREY        #8A8A8A;
+@def VALIDATION_RED   #F41616;
+@def INPUT_DEFAULT    #D9D9D9;
+@def INPUT_FOCUS      #9E9E9E;
+@def INPUT_BORDER     #AAAAAA;
+@def FORM_GREEN       #9CD2CA;
+
+
+/* Typical Linear, 2-Colour Gradient */
+@defmixin gradient(COLOR1, COLOR2, FALLBACK_COLOR)
+{
+  background: FALLBACK_COLOR; /* fallback color if gradients are not supported */
+	/* @alternate */ background: -moz-linear-gradient(top, COLOR1 0%, COLOR2 100%); /* FF3.6+ */
+  /* @alternate */ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,COLOR1), color-stop(100%,COLOR2)); /* Chrome,Safari4+ */
+  /* @alternate */ background: -webkit-linear-gradient(top,  COLOR1 0%,COLOR2 100%); /* Chrome10+,Safari5.1+ */
+  /* @alternate */ background: -o-linear-gradient(top,  COLOR1 0%,COLOR2 100%); /* Opera 11.10+ */
+  /* @alternate */ background: -ms-linear-gradient(top,  COLOR1 0%,COLOR2 100%); /* IE10+ */
+  /* @alternate */ background: linear-gradient(to bottom,  COLOR1 0%,COLOR2 100%); /* W3C */
+  /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='COLOR1', endColorstr='COLOR2',GradientType=0 ); */ /* IE6-9 */
+}
+
+
+
+/* Typical Linear, 2-Colour Gradient */
+@defmixin gradientWithImage(IMAGE_URL, OPTIONS, COLOR1, COLOR2, FALLBACK_COLOR)
+{
+  background: FALLBACK_COLOR; /* fallback color if gradients are not supported */
+  background-image: IMAGE_URL;
+	/* @alternate */ background: IMAGE_URL OPTIONS, -moz-linear-gradient(top, COLOR1 0%, COLOR2 100%); /* FF3.6+ */
+  /* @alternate */ background: IMAGE_URL OPTIONS, -webkit-gradient(linear, left top, left bottom, color-stop(0%,COLOR1), color-stop(100%,COLOR2)); /* Chrome,Safari4+ */
+  /* @alternate */ background: IMAGE_URL OPTIONS, -webkit-linear-gradient(top,  COLOR1 0%,COLOR2 100%); /* Chrome10+,Safari5.1+ */
+  /* @alternate */ background: IMAGE_URL OPTIONS, -o-linear-gradient(top,  COLOR1 0%,COLOR2 100%); /* Opera 11.10+ */
+  /* @alternate */ background: IMAGE_URL OPTIONS, -ms-linear-gradient(top,  COLOR1 0%,COLOR2 100%); /* IE10+ */
+  /* @alternate */ background: linear-gradient(to bottom,  COLOR1 0%,COLOR2 100%); /* W3C */
+  /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='COLOR1', endColorstr='COLOR2',GradientType=0 ); */ /* IE6-9 */
+}
+
+
+
+/* Linear 3 Colour Gradient */
+@defmixin gradient3(POS1, POS2, POS3, COLOR1, COLOR2, COLOR3, FALLBACK_COLOR)
+{
+  background: FALLBACK_COLOR; /* fallback color if gradients are not supported */
+	/* @alternate */ background: -moz-linear-gradient(top, COLOR1 POS1, COLOR2 POS2, COLOR3 POS3); /* FF3.6+ */
+  /* @alternate */ background: -webkit-gradient(linear, left top, left bottom, color-stop(POS1,COLOR1), color-stop(POS2,COLOR2), color-stop(POS3,COLOR3)); /* Chrome,Safari4+ */
+  /* @alternate */ background: -webkit-linear-gradient(top, COLOR1 POS1, COLOR2 POS2, COLOR3 POS3); /* Chrome10+,Safari5.1+ */
+  /* @alternate */ background: -o-linear-gradient(top, COLOR1 POS1, COLOR2 POS2, COLOR3 POS3); /* Opera 11.10+ */
+  /* @alternate */ background: -ms-linear-gradient(top, COLOR1 POS1, COLOR2 POS2, COLOR3 POS3); /* IE10+ */
+  /* @alternate */ background: linear-gradient(to bottom, COLOR1 POS1, COLOR2 POS2, COLOR3 POS3); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='COLOR1', endColorstr='COLOR3',GradientType=0 ); /* IE6-9 */
+}
+
+/* Border Radius */
+@defmixin border-radius(TOPLEFT, TOPRIGHT, BOTTOMRIGHT, BOTTOMLEFT)
+{
+  -webkit-border-radius: TOPLEFT TOPRIGHT BOTTOMRIGHT BOTTOMLEFT;
+     -moz-border-radius: TOPLEFT TOPRIGHT BOTTOMRIGHT BOTTOMLEFT;
+          border-radius: TOPLEFT TOPRIGHT BOTTOMRIGHT BOTTOMLEFT;
+}
+
+/* Box-Sizing */
+@defmixin box-sizing(VALUE)
+{
+  -webkit-box-sizing: VALUE;
+     -moz-box-sizing: VALUE;
+          box-sizing: VALUE;
+}
+
+/* Single Property transition */
+@defmixin transition(PROPERTY, SPEED)
+{
+  -webkit-transition:PROPERTY SPEED;
+     -moz-transition:PROPERTY SPEED;
+       -o-transition:PROPERTY SPEED;
+          transition:PROPERTY SPEED;
+}
+
+/* Two Property transition */
+@defmixin transition2(PROPERTY1, SPEED1, PROPERTY2, SPEED2)
+{
+  -webkit-transition:PROPERTY1 SPEED1, PROPERTY2, SPEED2;
+     -moz-transition:PROPERTY1 SPEED1, PROPERTY2, SPEED2;
+       -o-transition:PROPERTY1 SPEED1, PROPERTY2, SPEED2;
+          transition:PROPERTY1 SPEED1, PROPERTY2, SPEED2;
+}
+
+/* Transition delay */
+@defmixin transition-delay(TIME)
+{
+  -webkit-transition-delay:TIME;
+     -moz-transition-delay:TIME;
+       -o-transition-delay:TIME;
+          transition-delay:TIME;
+}
+
+
+/* Transform origin */
+@defmixin transform-origin(VALUE1, VALUE2)
+{
+  -webkit-transform-origin:VALUE1 VALUE2; /* Safari and Chrome */
+     -moz-transform-origin:VALUE1 VALUE2; /* Firefox */
+      -ms-transform-origin:VALUE1 VALUE2; /* IE 9 */
+       -o-transform-origin:VALUE1 VALUE2; /* Opera */
+          transform-origin:VALUE1 VALUE2;
+}
+
+
+/* Transform */
+@defmixin transform(OPTIONS)
+{
+  -webkit-transform:OPTIONS; /* Safari and Chrome */
+     -moz-transform:OPTIONS; /* Firefox */
+      -ms-transform:OPTIONS; /* IE 9 */
+       -o-transform:OPTIONS; /* Opera */
+          transform:OPTIONS;
+}
+
+/* Animation delay */
+@defmixin animation-delay(DELAY)
+{
+  -webkit-animation-delay:DELAY; /* Safari and Chrome */
+     -moz-animation-delay:DELAY; /* Firefox */
+       -o-animation-delay:DELAY; /* Opera */
+          animation-delay:DELAY;
+}
+
+
+
+
+/* OPACITY */
+@defmixin opacity(OPACITY) {
+	@def IEOPACITY 		mult(OPACITY,100);
+	-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=' IEOPACITY')';
+	filter: alpha(opacity= IEOPACITY);
+	opacity:OPACITY;
+}
+
+
+/**
+ Mixin Usage Examples
+ Values can be passed as strings or numbers and
+ do not need quotes around them.
+*/
+#neverUsed.testClass
+{
+  width: 300px;
+  height: 200px;
+/*  @mixin backgroundImage('/img/common/sprite-action-bar-icons.png', no-repeat); */
+/*  @mixin backgroundImageWithColour(NULL, '/img/common/sprite-action-bar-icons.png', NULL); */
+
+/*  @mixin gradient(#CC0000, #F07575, #CC0000); */
+/*  @mixin border-radius(8px,8px,0,0); */
+  /*@mixin transition(width, 0.05s ease);*/
+  @mixin transition2(width, .05s ease, height, .05s ease);
+}

@@ -1,0 +1,1 @@
+java -classpath compiler/plovr.jar;compiler/closure-template-plugin-0.0.1-SNAPSHOT.jar org.plovr.cli.Main build configuration/config_local.json > ../deploy/js/compiled.js

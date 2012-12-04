@@ -1,0 +1,16 @@
+{namespace template.main}
+
+/**
+ * Generic Page template.
+ * @param main
+ */
+{template .content}
+
+  {switch $main.content.pageType}
+
+    {case 'PAGE'}
+      {call template.page.content data="$main.content" /}
+
+  {/switch}
+
+{/template}
