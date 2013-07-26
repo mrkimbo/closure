@@ -101,8 +101,13 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'deploy/css/main.css': [
-            /*'.tmp/css/{,*//*}*.css',*/
-            CONFIG.src + '/css/{,*/}*.css'
+            /*CONFIG.src + '/css/{,*//*}*.css'*/
+
+            // maintain css order //
+            CONFIG.src + '/css/reset.css',
+            CONFIG.src + '/css/fonts.css',
+            CONFIG.src + '/css/colorpicker-simplegrid.css',
+            CONFIG.src + '/css/styles.css'
           ]
         }
       }
@@ -180,7 +185,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-rev');
   grunt.loadNpmTasks('grunt-usemin');
 
-  grunt.registerTask('build', [
+  grunt.registerTask('default', [
     'clean',
     'useminPrepare',
 	'cssmin',
@@ -189,7 +194,4 @@ module.exports = function(grunt) {
     'rev',
     'usemin'
   ]);
-
-  // Default task.
-  grunt.registerTask('default', ['build']);
 };
