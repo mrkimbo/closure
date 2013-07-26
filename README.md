@@ -1,7 +1,7 @@
 Closure
 =======
 
-Project structure/workflow for Google Closure Tools development.
+Project structure/workflow for Google Closure Tools development.<br/>
 Uses the following [Grunt](www.gruntjs.com) tasks:
 
 [superstartup-closure-compiler](https://github.com/closureplease/superstartup-closure-compiler)<br/>
