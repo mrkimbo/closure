@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         }
     },
 
-    // Copy jsLibs, images and css to deploy //
+    // Copy jsLibs, images and html to deploy //
     copy: {
       dist: {
         files: [{
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
       dist: {
         files: {
           src: [
-            CONFIG.deploy + '/js/{,*/}*.js',
+            CONFIG.deploy + '/js/*.js', // only alter js files in js root dir.
             CONFIG.deploy + '/css/{,*/}*.css',
             CONFIG.deploy + '/img/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
           ]
